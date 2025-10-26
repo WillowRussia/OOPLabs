@@ -1,0 +1,15 @@
+/Users/vostrov/ItmoProjects/OOP/OOPLabs/Lab1/Lab1/obj/Debug/net9.0/Lab1.GeneratedMSBuildEditorConfig.editorconfig
+/Users/vostrov/ItmoProjects/OOP/OOPLabs/Lab1/Lab1/obj/Debug/net9.0/Lab1.AssemblyInfoInputs.cache
+/Users/vostrov/ItmoProjects/OOP/OOPLabs/Lab1/Lab1/obj/Debug/net9.0/Lab1.AssemblyInfo.cs
+/Users/vostrov/ItmoProjects/OOP/OOPLabs/Lab1/Lab1/obj/Debug/net9.0/Lab1.csproj.CoreCompileInputs.cache
+/Users/vostrov/ItmoProjects/OOP/OOPLabs/Lab1/Lab1/obj/Debug/net9.0/Lab1.sourcelink.json
+/Users/vostrov/ItmoProjects/OOP/OOPLabs/Lab1/Lab1/bin/Debug/net9.0/Lab1
+/Users/vostrov/ItmoProjects/OOP/OOPLabs/Lab1/Lab1/bin/Debug/net9.0/Lab1.deps.json
+/Users/vostrov/ItmoProjects/OOP/OOPLabs/Lab1/Lab1/bin/Debug/net9.0/Lab1.runtimeconfig.json
+/Users/vostrov/ItmoProjects/OOP/OOPLabs/Lab1/Lab1/bin/Debug/net9.0/Lab1.dll
+/Users/vostrov/ItmoProjects/OOP/OOPLabs/Lab1/Lab1/bin/Debug/net9.0/Lab1.pdb
+/Users/vostrov/ItmoProjects/OOP/OOPLabs/Lab1/Lab1/obj/Debug/net9.0/Lab1.dll
+/Users/vostrov/ItmoProjects/OOP/OOPLabs/Lab1/Lab1/obj/Debug/net9.0/refint/Lab1.dll
+/Users/vostrov/ItmoProjects/OOP/OOPLabs/Lab1/Lab1/obj/Debug/net9.0/Lab1.pdb
+/Users/vostrov/ItmoProjects/OOP/OOPLabs/Lab1/Lab1/obj/Debug/net9.0/Lab1.genruntimeconfig.cache
+/Users/vostrov/ItmoProjects/OOP/OOPLabs/Lab1/Lab1/obj/Debug/net9.0/ref/Lab1.dll
