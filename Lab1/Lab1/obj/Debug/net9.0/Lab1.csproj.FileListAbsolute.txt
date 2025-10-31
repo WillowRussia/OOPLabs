@@ -13,9 +13,3 @@
 /Users/vostrov/ItmoProjects/OOP/OOPLabs/Lab1/Lab1/obj/Debug/net9.0/Lab1.pdb
 /Users/vostrov/ItmoProjects/OOP/OOPLabs/Lab1/Lab1/obj/Debug/net9.0/Lab1.genruntimeconfig.cache
 /Users/vostrov/ItmoProjects/OOP/OOPLabs/Lab1/Lab1/obj/Debug/net9.0/ref/Lab1.dll
-/Users/vostrov/ItmoProjects/OOP/OOPLabs/Lab1/Lab1/bin/Debug/net9.0/xunit.abstractions.dll
-/Users/vostrov/ItmoProjects/OOP/OOPLabs/Lab1/Lab1/bin/Debug/net9.0/xunit.assert.dll
-/Users/vostrov/ItmoProjects/OOP/OOPLabs/Lab1/Lab1/bin/Debug/net9.0/xunit.core.dll
-/Users/vostrov/ItmoProjects/OOP/OOPLabs/Lab1/Lab1/bin/Debug/net9.0/xunit.execution.dotnet.dll
-/Users/vostrov/ItmoProjects/OOP/OOPLabs/Lab1/Lab1/obj/Debug/net9.0/Lab1.csproj.AssemblyReference.cache
-/Users/vostrov/ItmoProjects/OOP/OOPLabs/Lab1/Lab1/obj/Debug/net9.0/Lab1.csproj.Up2Date

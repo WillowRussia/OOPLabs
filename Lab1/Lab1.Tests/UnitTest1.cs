@@ -1,8 +1,6 @@
-using System.Linq;
-using CourseManagementSystem.Builders;
+﻿using CourseManagementSystem.Builders;
 using CourseManagementSystem.Models;
 using CourseManagementSystem.Services;
-using Xunit;
 
 namespace CourseManagementSystem.Tests
 {
