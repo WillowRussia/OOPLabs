@@ -1,5 +1,6 @@
 namespace RPGInventorySystem.Modules
-{    public class ItemUpgradeService
+{
+    public class ItemUpgradeService
     {
         public Weapon UpgradeWeapon(Weapon weapon, int extraDamage, ItemRarity newRarity)
         {
