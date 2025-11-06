@@ -1,3 +1,5 @@
+using RPGInventorySystem.Items;
+
 namespace RPGInventorySystem.Modules
 {
     public class ItemUpgradeService
