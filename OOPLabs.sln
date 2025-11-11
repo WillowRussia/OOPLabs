@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab2", "Lab2\Lab2\Lab2.cspr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab2.Tests", "Lab2\Lab2.Tests\Lab2.Tests.csproj", "{16E32970-5DB5-45AA-9CF4-97194F54789A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab3", "Lab3", "{87B7E9C9-4035-1DCE-E58D-63E422A029CF}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab3", "Lab3\Lab3\Lab3.csproj", "{65097324-9831-4029-B548-B82B9CCF9A51}"
 EndProject
 Global
@@ -88,8 +86,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{65097324-9831-4029-B548-B82B9CCF9A51} = {87B7E9C9-4035-1DCE-E58D-63E422A029CF}
 	EndGlobalSection
 EndGlobal
