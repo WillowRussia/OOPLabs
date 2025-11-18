@@ -2,119 +2,117 @@
 using CourseManagementSystem.Models;
 using CourseManagementSystem.Services;
 
-namespace CourseManagementSystem.Tests
+public class UniversitySystemTests
 {
-    public class UniversitySystemTests
+    [Fact]
+    public void GetInstance_MultipleTimes_ReturnsSameInstance()
     {
-        private readonly UniversitySystem _system;
+        var system = UniversitySystem.Instance;
+        system.Reset();
 
-        public UniversitySystemTests()
-        {
-            _system = UniversitySystem.Instance;
-            _system.Reset(); 
-        }
+        var instance1 = UniversitySystem.Instance;
+        var instance2 = UniversitySystem.Instance;
 
-        [Fact]
-        public void UniversitySystem_IsSingleton()
-        {
-            var instance1 = UniversitySystem.Instance;
-            var instance2 = UniversitySystem.Instance;
-            Assert.Same(instance1, instance2);
-        }
+        Assert.Same(instance1, instance2);
+    }
 
-        [Fact]
-        public void AddCourse_ShouldAddCourseToSystem()
-        {
-            var course = new OnlineCourseBuilder()
-                .WithId(1)
-                .WithName("Основы C#")
-                .WithPlatform("Unity")
-                .Build();
+    [Fact]
+    public void AddCourse_ToSystem_IncreasesCourseCountAndAddsCourse()
+    {
+        var system = UniversitySystem.Instance;
+        system.Reset();
+        var course = new OnlineCourseBuilder()
+            .WithId(1)
+            .WithName("Основы C#")
+            .Build();
 
-            _system.AddCourse(course);
+        system.AddCourse(course);
 
-            Assert.Single(_system.AllCourses);
-            Assert.Equal("Основы C#", _system.AllCourses.First().Name);
-        }
+        Assert.Single(system.AllCourses);
+        Assert.Contains(course, system.AllCourses);
+    }
 
-        [Fact]
-        public void RemoveCourse_ShouldRemoveCourseFromSystem()
-        {
-            // Проверяем, что курс корректно удаляется
-            var course = new OfflineCourseBuilder()
-                .WithId(1)
-                .WithName("Продвинутый Java")
-                .WithAddress("Кронверский", "49")
-                .Build();
+    [Fact]
+    public void RemoveCourse_FromSystemWithOneCourse_MakesCourseListEmpty()
+    {
+        var system = UniversitySystem.Instance;
+        system.Reset();
+        var course = new OfflineCourseBuilder()
+            .WithId(1)
+            .WithName("Продвинутый Java")
+            .WithAddress("Кронверский", "49")
+            .Build();
+        system.AddCourse(course);
 
-            _system.AddCourse(course);
-            Assert.Single(_system.AllCourses);
+        system.RemoveCourse(1);
 
-            _system.RemoveCourse(1);
+        Assert.Empty(system.AllCourses);
+    }
 
-            Assert.Empty(_system.AllCourses);
-        }
+    [Fact]
+    public void AssignTeacher_ToCourse_CorrectlySetsTeacherForCourse()
+    {
+        var system = UniversitySystem.Instance;
+        system.Reset();
+        var teacher = new Teacher { Id = 101, Name = "Сергей Владимирович" };
+        var course = new OnlineCourseBuilder()
+            .WithId(1)
+            .WithName("С#")
+            .Build();
+        system.AddCourse(course);
 
-        [Fact]
-        public void AssignTeacherToCourse_ShouldSetTeacher()
-        {
-            var teacher = new Teacher { Id = 101, Name = "Сергей Владимирович" };
-            var course = new OnlineCourseBuilder()
-                .WithId(1)
-                .WithName("С#")
-                .WithPlatform("Notion")
-                .Build();
+        system.AssignTeacherToCourse(teacher, 1);
+        
+        var storedCourse = system.AllCourses.First();
+        Assert.NotNull(storedCourse.AssignedTeacher);
+        Assert.Equal("Сергей Владимирович", storedCourse.AssignedTeacher.Name);
+        Assert.Same(teacher, storedCourse.AssignedTeacher);
+    }
 
-            _system.AddCourse(course);
-            _system.AssignTeacherToCourse(teacher, 1);
+    [Fact]
+    public void EnrollStudent_InCourse_AddsStudentToCourseRoster()
+    {
+        var system = UniversitySystem.Instance;
+        system.Reset();
+        var student = new Student { Id = 1, Name = "Сергей Владимирович" };
+        var course = new OfflineCourseBuilder()
+            .WithId(1)
+            .WithName("C#")
+            .Build();
+        system.AddCourse(course);
 
-            var storedCourse = _system.AllCourses.First();
-            Assert.NotNull(storedCourse.AssignedTeacher);
-            Assert.Equal("Сергей Владимирович", storedCourse.AssignedTeacher.Name);
-        }
+        system.EnrollStudentInCourse(student, 1);
 
-        [Fact]
-        public void EnrollStudentInCourse_ShouldAddStudentToCourse()
-        {
-            // Проверяем запись студента на курс
-            var student = new Student { Id = 1, Name = "Сергей Владимирович" };
-            var course = new OfflineCourseBuilder()
-                .WithId(1)
-                .WithName("C#")
-                .WithAddress("Кронверский", "49")
-                .Build();
+        var storedCourse = system.AllCourses.First();
+        Assert.Single(storedCourse.EnrolledStudents);
+        Assert.Contains(student, storedCourse.EnrolledStudents);
+    }
 
-            _system.AddCourse(course);
-            _system.EnrollStudentInCourse(student, 1);
+    [Fact]
+    public void GetCourses_ByTeacherId_ReturnsOnlyCoursesAssignedToThatTeacher()
+    {
+        var system = UniversitySystem.Instance;
+        system.Reset();
+        var teacher1 = new Teacher { Id = 101, Name = "Сергей Владимирович" };
+        var teacher2 = new Teacher { Id = 102, Name = "Николай Кочубеев" };
 
-            var storedCourse = _system.AllCourses.First();
-            Assert.Single(storedCourse.EnrolledStudents);
-            Assert.Equal("Сергей Владимирович", storedCourse.EnrolledStudents.First().Name);
-        }
+        var course1 = new OnlineCourseBuilder().WithId(1).WithName("C#").Build();
+        var course2 = new OfflineCourseBuilder().WithId(2).WithName("Java").Build();
+        var course3 = new OnlineCourseBuilder().WithId(3).WithName("Алгоритмы").Build();
 
-        [Fact]
-        public void GetCoursesByTeacher_ShouldReturnCorrectCourses()
-        {
-            var teacher1 = new Teacher { Id = 101, Name = "Сергей Владимирович" };
-            var teacher2 = new Teacher { Id = 102, Name = "Николай Кочубеев" };
-
-            var course1 = new OnlineCourseBuilder().WithId(1).WithName("C#").Build();
-            var course2 = new OfflineCourseBuilder().WithId(2).WithName("Java").Build();
-            var course3 = new OnlineCourseBuilder().WithId(3).WithName("Алгоритмы").Build();
-
-            _system.AddCourse(course1);
-            _system.AddCourse(course2);
-            _system.AddCourse(course3);
-
-            _system.AssignTeacherToCourse(teacher1, 1);
-            _system.AssignTeacherToCourse(teacher2, 2);
-            _system.AssignTeacherToCourse(teacher1, 3);
-
-            var teacher1Courses = _system.GetCoursesByTeacher(101).ToList();
-
-            Assert.Equal(2, teacher1Courses.Count);
-            Assert.Contains(teacher1Courses, c => c.Name == "C#");
-            Assert.Contains(teacher1Courses, c => c.Name == "Алгоритмы");
-        }
+        system.AddCourse(course1);
+        system.AddCourse(course2);
+        system.AddCourse(course3);
+        
+        system.AssignTeacherToCourse(teacher1, 1);
+        system.AssignTeacherToCourse(teacher2, 2);
+        system.AssignTeacherToCourse(teacher1, 3);
+        
+        var teacher1Courses = system.GetCoursesByTeacher(101).ToList();
+        
+        Assert.Equal(2, teacher1Courses.Count);
+        Assert.Contains(teacher1Courses, c => c.Name == "C#");
+        Assert.Contains(teacher1Courses, c => c.Name == "Алгоритмы");
+        Assert.DoesNotContain(teacher1Courses, c => c.Name == "Java");
     }
 }
