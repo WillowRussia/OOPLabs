@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab2.Tests", "Lab2\Lab2.Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab3", "Lab3\Lab3\Lab3.csproj", "{65097324-9831-4029-B548-B82B9CCF9A51}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab3", "Lab3", "{87B7E9C9-4035-1DCE-E58D-63E422A029CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab3.Tests", "Lab3\Lab3.Tests\Lab3.Tests.csproj", "{B37EBD2F-9899-4200-91B6-090C2D35CB21}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,8 +87,23 @@ Global
 		{65097324-9831-4029-B548-B82B9CCF9A51}.Release|x64.Build.0 = Release|Any CPU
 		{65097324-9831-4029-B548-B82B9CCF9A51}.Release|x86.ActiveCfg = Release|Any CPU
 		{65097324-9831-4029-B548-B82B9CCF9A51}.Release|x86.Build.0 = Release|Any CPU
+		{B37EBD2F-9899-4200-91B6-090C2D35CB21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B37EBD2F-9899-4200-91B6-090C2D35CB21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B37EBD2F-9899-4200-91B6-090C2D35CB21}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B37EBD2F-9899-4200-91B6-090C2D35CB21}.Debug|x64.Build.0 = Debug|Any CPU
+		{B37EBD2F-9899-4200-91B6-090C2D35CB21}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B37EBD2F-9899-4200-91B6-090C2D35CB21}.Debug|x86.Build.0 = Debug|Any CPU
+		{B37EBD2F-9899-4200-91B6-090C2D35CB21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B37EBD2F-9899-4200-91B6-090C2D35CB21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B37EBD2F-9899-4200-91B6-090C2D35CB21}.Release|x64.ActiveCfg = Release|Any CPU
+		{B37EBD2F-9899-4200-91B6-090C2D35CB21}.Release|x64.Build.0 = Release|Any CPU
+		{B37EBD2F-9899-4200-91B6-090C2D35CB21}.Release|x86.ActiveCfg = Release|Any CPU
+		{B37EBD2F-9899-4200-91B6-090C2D35CB21}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B37EBD2F-9899-4200-91B6-090C2D35CB21} = {87B7E9C9-4035-1DCE-E58D-63E422A029CF}
 	EndGlobalSection
 EndGlobal
